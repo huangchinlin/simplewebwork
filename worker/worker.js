@@ -1,20 +1,19 @@
 onmessage = (e) => {
-  let ret = "";
   switch(e.data.topic) {
     case "1":
       for(let i = 0; i < 10000; i++);
-      ret = e.data.result = "case 1: ran 10,000 times";
-      console.log(ret);
+      e.data.result = "case 1: ran 10,000 times";
+      console.log(e.data);
       break;
     case "2":
       for(let i=0; i < 50000; i++);
-      ret = e.data.result = "case 2: ran 50,000 times";
-      console.log(ret);
+      e.data.result = "case 2: ran 50,000 times";
+      console.log(e.data);
       break;
     default:
-      ret = e.data.result = "do notthing.";
+      e.data.result = "do notthing.";
       break;
   }
   
-  postMessage(ret);
+  postMessage(e.data);
 }
