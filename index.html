@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <title>web worker</title>
+  </head>
+  <body>
+    <h1>WEB Worker</h1>
+	<hr/>
+	<input type="button" onclick="btn1_action()" value="run worker">
+	<span id="span1">waiting</span>
+	<script>
+	  var btn1_action = () => {
+	    const s = document.getElementById("span1");
+	    s.innerHTML = "running...";
+		console.log("running...");
+		
+	    if (window.Worker) {
+		  const w = new Worker("worker.js");
+		  w.onMessage = (e) => {
+		    span.innerHTML = "from worker: " + e.data;
+			console.log(e.data);
+		  }
+		  w.postMessage("test test!");
+		} else {
+		  span.innerHTML = "the browser is not support web worker."
+		}
+	  }
+	</script>
+  </body>
+</html>
