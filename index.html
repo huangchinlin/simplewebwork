@@ -32,7 +32,7 @@
             const pp = document.getElementById("counter");
 	    pp.innerHTML = "none";		  
             setTimeout(() => {
-              for(let i = 0; i < 1000000; i++) {
+              for(let i = 0; i < 5000000; i++) {
                 pp.innerHTML = "in UI thread: " + String(i + 1) + "&nbsp;times";
               }
             }, 10);    
