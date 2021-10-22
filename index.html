@@ -19,7 +19,9 @@
 	    if (window.Worker) {
 		  const w = new Worker("worker/worker.js");
 		  w.onmessage = (e) => {
-		    s.innerHTML = "in worker thread: " + JSON.stringify(e.data);
+	            let data = JSON.stringify(e.data);
+		    s.innerHTML = "in worker thread: " + data;
+	            console.log(data);
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
 		  
@@ -35,6 +37,7 @@
               for(let i = 0; i < times; i++) {
                 pp.innerHTML = "in UI thread: " + String(i + 1) + "&nbsp;times";
               }
+	      console.log("loop in ui thread is done.");
             }, 10);    
 	  }
 	</script>
