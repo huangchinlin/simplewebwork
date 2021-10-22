@@ -1,4 +1,18 @@
 onmessage = (e) => {
-  let ret = e.data;
+  let ret = "";
+  switch(e.data.topic) {
+    case "1":
+      for(let i = 0; i < 1000000; i++);
+      ret = e.data.result = "ran 1,000,000 times";
+      break;
+    case "2":
+        for(let i=0; i < 1000000000; i++);
+        ret = e.data.result = "ran 1,000,000,000 times";
+      break;
+    default:
+      ret = e.data.result = "do notthing.";
+      break;
+  }
+  
   postMessage(ret);
 }
