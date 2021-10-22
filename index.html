@@ -14,8 +14,9 @@
 	<script>
 	  var btn1_action = (m) => {
 	    const s = document.getElementById("span1");
+            const pp = document.getElementById("counter");
 	    s.innerHTML = "running...";
-	    console.log("running...");
+	    pp.innerHTML = "none";
 		
 	    if (window.Worker) {
 		  const w = new Worker("worker/worker.js");
@@ -23,11 +24,10 @@
 		    s.innerHTML = "from worker: " + JSON.stringify(e.data);
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
-		  const pp = document.getElementById("counter");
-		  pp.innerHTML = "none";
+		  
 		  setTimeout(() => {
 	            for(let i = 0; i < 1000000; i++) {
-		      pp.innerHTML = String(i);
+		      pp.innerHTML = String(i + 1) + "&nbsp;times";
 		    }
 		  }, 1);
 		} else {
