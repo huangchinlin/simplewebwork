@@ -16,7 +16,7 @@
 		
 	    if (window.Worker) {
 		  const w = new Worker("worker.js");
-		  w.onMessage = (e) => {
+		  w.onmessage = (e) => {
 		    s.innerHTML = "from worker: " + e.data;
 	            console.log(e.data);
 		  }
