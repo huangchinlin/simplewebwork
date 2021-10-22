@@ -2,11 +2,11 @@ onmessage = (e) => {
   let ret = "";
   switch(e.data.topic) {
     case "1":
-      for(let i = 0; i < 1000000; i++);
+      for(let i = 0; i < 100000; i++);
       ret = e.data.result = "ran 1,000,000 times";
       break;
     case "2":
-        for(let i=0; i < 1000000000; i++);
+        for(let i=0; i < 500000; i++);
         ret = e.data.result = "ran 1,000,000,000 times";
       break;
     default:
