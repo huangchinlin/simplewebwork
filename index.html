@@ -24,7 +24,7 @@
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
 		  const pp = document.getElementById("counter");
-		  settimeout(() => {
+		  setTimeout(() => {
 	            for(let i = 0; i < 10000; i++) {
 		      pp.innerHTML = String(i);
 		    }
