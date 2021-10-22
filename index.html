@@ -17,7 +17,7 @@
 	    if (window.Worker) {
 		  const w = new Worker("worker/worker.js");
 		  w.onmessage = (e) => {
-		    s.innerHTML = "from worker: " + e.data;
+		    s.innerHTML = "from worker: " + JSON.stringify(e.data);
 		  }
 		  w.postMessage({topic:"1",payload:"12345"});
 		} else {
