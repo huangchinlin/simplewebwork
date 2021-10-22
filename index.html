@@ -15,7 +15,7 @@
 	    console.log("running...");
 		
 	    if (window.Worker) {
-		  const w = new Worker("workers/worker.js");
+		  const w = new Worker("worker/worker.js");
 		  w.onmessage = (e) => {
 		    s.innerHTML = "from worker: " + e.data;
 		  }
