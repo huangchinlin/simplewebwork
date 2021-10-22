@@ -6,18 +6,18 @@ onmessage = (e) => {
       for(let i = 0; i < 10000; i++)
         ret = "case 1: ran " + String(i + 1) + " times";
       
-      e.data.result = ret;
+      e.data.result = String(Date.now()) + ", " + ret;
       console.log(e.data);
       break;
     case "2":
       for(let i = 0; i < 50000; i++)
         ret = "case 2: ran " + String(i + 1) + " times";
       
-      e.data.result = ret;
+      e.data.result = String(Date.now()) + ", " + ret;
       console.log(e.data);
       break;
     default:
-      e.data.result = "do notthing.";
+      e.data.result = String(Date.now()) + ", do notthing.";
       console.log(e.data);
       break;
   }
