@@ -6,8 +6,8 @@
   <body>
     <h1>WEB Worker</h1>
 	<hr/>
-	<input type="button" onclick="loop();btn1_action(1)" value="run worker w/mode 1">&nbsp;&nbsp;
-	<input type="button" onclick="loop();btn1_action(2)" value="run worker w/mode 2">
+	<input type="button" onclick="loop(5000000);btn1_action(1)" value="run worker w/mode 1">&nbsp;&nbsp;
+	<input type="button" onclick="loop(5000000);btn1_action(2)" value="run worker w/mode 2">
 	<br /><br />
 	<p id="counter">none</p>
 	<span id="span1">waiting</span>
@@ -28,11 +28,11 @@
 		}
 	  }
 	  
-	  var loop = () => {
+	  var loop = (times) => {
             const pp = document.getElementById("counter");
 	    pp.innerHTML = "none";		  
             setTimeout(() => {
-              for(let i = 0; i < 5000000; i++) {
+              for(let i = 0; i < times; i++) {
                 pp.innerHTML = "in UI thread: " + String(i + 1) + "&nbsp;times";
               }
             }, 10);    
