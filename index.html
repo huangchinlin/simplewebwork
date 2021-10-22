@@ -8,7 +8,8 @@
 	<hr/>
 	<input type="button" onclick="btn1_action(1)" value="run worker w/mode 1">&nbsp;&nbsp;
 	<input type="button" onclick="btn1_action(2)" value="run worker w/mode 2">
-	<br />
+	<br /><br />
+	<p id="counter">none</p>
 	<span id="span1">waiting</span>
 	<script>
 	  var btn1_action = (m) => {
@@ -22,6 +23,9 @@
 		    s.innerHTML = "from worker: " + JSON.stringify(e.data);
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
+		  const pp = document.getElementById("counter");
+		  for(let i = 0; i < 1000000000; i++)
+		    pp.innerHTML = String(i);		  
 		} else {
 		  s.innerHTML = "the browser is not support web worker."
 		}
