@@ -1,6 +1,4 @@
 onmessage = (e) => {
-  console.log(e);
-  let ret = JSON.stringify(e.data);
-  console.log(ret);
+  let ret = e.data;
   postMessage(ret);
 }
