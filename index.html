@@ -19,8 +19,8 @@
 	    if (window.Worker) {
 		  const w = new Worker("worker/worker.js");
 		  w.onmessage = (e) => {
-	            let data = JSON.stringify(e.data);
-		    s.innerHTML = "in worker thread: " + data;
+	            let data = "in worker thread: " + JSON.stringify(e.data);
+		    s.innerHTML = data;
 	            console.log(data);
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
