@@ -17,12 +17,12 @@
 	    if (window.Worker) {
 		  const w = new Worker("worker.js");
 		  w.onMessage = (e) => {
-		    span.innerHTML = "from worker: " + e.data;
-			console.log(e.data);
+		    s.innerHTML = "from worker: " + e.data;
+	            console.log(e.data);
 		  }
 		  w.postMessage("test test!");
 		} else {
-		  span.innerHTML = "the browser is not support web worker."
+		  s.innerHTML = "the browser is not support web worker."
 		}
 	  }
 	</script>
