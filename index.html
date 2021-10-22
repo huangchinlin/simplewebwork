@@ -6,11 +6,12 @@
   <body>
     <h1>WEB Worker</h1>
 	<hr/>
-	<input type="button" onclick="btn1_action()" value="run worker">
+	<input type="button" onclick="btn1_action(1)" value="run worker w/mode 1">&nbsp;&nbsp;
+	<input type="button" onclick="btn1_action(2)" value="run worker w/mode 2">
 	<br />
 	<span id="span1">waiting</span>
 	<script>
-	  var btn1_action = () => {
+	  var btn1_action = (m) => {
 	    const s = document.getElementById("span1");
 	    s.innerHTML = "running...";
 	    console.log("running...");
@@ -20,7 +21,7 @@
 		  w.onmessage = (e) => {
 		    s.innerHTML = "from worker: " + JSON.stringify(e.data);
 		  }
-		  w.postMessage({topic:"1",payload:"12345"});
+		  w.postMessage({topic:String(m),payload:"12345"});
 		} else {
 		  s.innerHTML = "the browser is not support web worker."
 		}
