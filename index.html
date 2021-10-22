@@ -21,7 +21,7 @@
 		  w.onmessage = (e) => {
 	            let data = "in worker thread: " + JSON.stringify(e.data);
 		    s.innerHTML = data;
-	            console.log(data);
+	            console.log(String(Date.now()) + ", " + data);
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
 		  
@@ -38,8 +38,9 @@
               for(let i = 0; i < times; i++) {
                 ret = "in UI thread: " + String(i + 1) + "&nbsp;times";
               }
+	      ret = String(Date.now()) + ", " + ret;
 	      pp.innerHTML = ret;
-	      console.log("loop in ui thread is done.");
+	      console.log(ret);
             }, 10);    
 	  }
 	</script>
