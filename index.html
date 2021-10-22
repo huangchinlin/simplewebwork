@@ -34,9 +34,11 @@
             const pp = document.getElementById("counter");
 	    pp.innerHTML = "none";		  
             setTimeout(() => {
+	      let ret = "";
               for(let i = 0; i < times; i++) {
-                pp.innerHTML = "in UI thread: " + String(i + 1) + "&nbsp;times";
+                ret = "in UI thread: " + String(i + 1) + "&nbsp;times";
               }
+	      pp.innerHTML = ret;
 	      console.log("loop in ui thread is done.");
             }, 10);    
 	  }
