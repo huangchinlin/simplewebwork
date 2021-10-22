@@ -21,13 +21,13 @@
 	    if (window.Worker) {
 		  const w = new Worker("worker/worker.js");
 		  w.onmessage = (e) => {
-		    s.innerHTML = "from worker: " + JSON.stringify(e.data);
+		    s.innerHTML = "in worker thread: " + JSON.stringify(e.data);
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
 		  
 		  setTimeout(() => {
 	            for(let i = 0; i < 1000000; i++) {
-		      pp.innerHTML = String(i + 1) + "&nbsp;times";
+		      pp.innerHTML = "in UI thread: " + String(i + 1) + "&nbsp;times";
 		    }
 		  }, 10);
 		} else {
