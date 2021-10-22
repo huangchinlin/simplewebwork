@@ -24,7 +24,7 @@
 		  }
 		  w.postMessage({topic:String(m),payload:"12345"});
 		  const pp = document.getElementById("counter");
-		  for(let i = 0; i < 1000000000; i++)
+		  for(let i = 0; i < 10000000; i++)
 		    pp.innerHTML = String(i);		  
 		} else {
 		  s.innerHTML = "the browser is not support web worker."
