@@ -14,10 +14,8 @@
 	<script>
 	  var btn1_action = (m) => {
 	    const s = document.getElementById("span1");
-            const pp = document.getElementById("counter");
 	    s.innerHTML = "running...";
-	    pp.innerHTML = "none";
-		
+
 	    if (window.Worker) {
 		  const w = new Worker("worker/worker.js");
 		  w.onmessage = (e) => {
@@ -31,6 +29,8 @@
 	  }
 	  
 	  var loop = () => {
+            const pp = document.getElementById("counter");
+	    pp.innerHTML = "none";		  
             setTimeout(() => {
               for(let i = 0; i < 1000000; i++) {
                 pp.innerHTML = "in UI thread: " + String(i + 1) + "&nbsp;times";
