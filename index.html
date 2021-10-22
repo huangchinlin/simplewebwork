@@ -12,15 +12,14 @@
 	  var btn1_action = () => {
 	    const s = document.getElementById("span1");
 	    s.innerHTML = "running...";
-		console.log("running...");
+	    console.log("running...");
 		
 	    if (window.Worker) {
-		  const w = new Worker("worker.js");
+		  const w = new Worker("workers/worker.js");
 		  w.onmessage = (e) => {
 		    s.innerHTML = "from worker: " + e.data;
-	            console.log(e.data);
 		  }
-		  w.postMessage("test test!");
+		  w.postMessage({topic:"1",payload:"12345"});
 		} else {
 		  s.innerHTML = "the browser is not support web worker."
 		}
